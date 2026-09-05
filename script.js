@@ -127,6 +127,65 @@
 // }
 
 // loadQuestion();
+const dictionary = {
+
+    "रामः": {
+        iast: "rāmaḥ",
+        meaning: "Rama",
+        root: "राम",
+        grammar: "Nominative singular, masculine"
+    },
+
+    "गच्छति": {
+        iast: "gacchati",
+        meaning: "goes",
+        root: "गम्",
+        grammar: "Third person singular, present tense"
+    },
+
+    "पठति": {
+        iast: "paṭhati",
+        meaning: "reads / studies",
+        root: "पठ्",
+        grammar: "Third person singular, present tense"
+    },
+
+    "जलम्": {
+        iast: "jalam",
+        meaning: "water",
+        root: "जल",
+        grammar: "Accusative/Nominative singular, neuter"
+    },
+
+    "सूर्यः": {
+        iast: "sūryaḥ",
+        meaning: "Sun",
+        root: "सूर्य",
+        grammar: "Nominative singular, masculine"
+    },
+
+    "नमः": {
+        iast: "namaḥ",
+        meaning: "salutation / bow",
+        root: "नम्",
+        grammar: "Indeclinable expression"
+    },
+
+    "विद्या": {
+        iast: "vidyā",
+        meaning: "knowledge",
+        root: "विद्",
+        grammar: "Nominative singular, feminine"
+    },
+
+    "गुरुः": {
+        iast: "guruḥ",
+        meaning: "teacher",
+        root: "गुरु",
+        grammar: "Nominative singular, masculine"
+    }
+
+};
 
 const vowels = [
     "अ", "आ", "इ", "ई", "उ", "ऊ",
@@ -445,4 +504,205 @@ if (SpeechRecognition) {
 } else {
     micBtn.disabled = true;
     micStatus.innerText = "Voice input isn't supported in this browser (try Chrome). Use the text box instead.";
+}
+
+function searchWord() {
+
+    const input = document.getElementById("wordInput");
+
+    const word = input.value.trim();
+
+    const result = document.getElementById("dictionaryResult");
+
+    if (word === "") {
+
+        result.innerHTML = `
+            <p>Please enter a Sanskrit word.</p>
+        `;
+
+        return;
+    }
+
+    const data = dictionary[word];
+
+    if (data) {
+
+        result.innerHTML = `
+
+            <h3>${word}</h3>
+
+            <p>
+                <strong>IAST:</strong>
+                ${data.iast}
+            </p>
+
+            <p>
+                <strong>Meaning:</strong>
+                ${data.meaning}
+            </p>
+
+            <p>
+                <strong>Root:</strong>
+                ${data.root}
+            </p>
+
+            <p>
+                <strong>Grammar:</strong>
+                ${data.grammar}
+            </p>
+
+        `;
+
+    } else {
+
+        result.innerHTML = `
+
+            <h3>${word}</h3>
+
+            <p>
+                Word not available in the basic dictionary.
+            </p>
+
+            <p>
+                You can still use the Transliterate button
+                to obtain a Roman transliteration.
+            </p>
+
+        `;
+    }
+}
+
+function setWord(word) {
+
+    document.getElementById("wordInput").value = word;
+
+    searchWord();
+}
+
+function transliterateInput() {
+
+    const input = document.getElementById("wordInput");
+
+    const word = input.value.trim();
+
+    const result = document.getElementById("dictionaryResult");
+
+    if (word === "") {
+
+        result.innerHTML = `
+            <p>Please enter a Sanskrit word.</p>
+        `;
+
+        return;
+    }
+
+    if (dictionary[word]) {
+
+        result.innerHTML = `
+
+            <h3>${word}</h3>
+
+            <p>
+                <strong>Transliteration:</strong>
+                ${dictionary[word].iast}
+            </p>
+
+            <p>
+                <strong>Meaning:</strong>
+                ${dictionary[word].meaning}
+            </p>
+
+        `;
+
+    } else {
+
+        result.innerHTML = `
+
+            <h3>${word}</h3>
+
+            <p>
+                <strong>Transliteration:</strong>
+                ${basicTransliterate(word)}
+            </p>
+
+            <p>
+                This word is not available in the basic dictionary.
+            </p>
+
+        `;
+    }
+}
+
+function basicTransliterate(text) {
+
+    const map = {
+
+        "अ": "a",
+        "आ": "ā",
+        "इ": "i",
+        "ई": "ī",
+        "उ": "u",
+        "ऊ": "ū",
+        "ऋ": "ṛ",
+        "ए": "e",
+        "ऐ": "ai",
+        "ओ": "o",
+        "औ": "au",
+
+        "क": "ka",
+        "ख": "kha",
+        "ग": "ga",
+        "घ": "gha",
+        "ङ": "ṅa",
+
+        "च": "ca",
+        "छ": "cha",
+        "ज": "ja",
+        "झ": "jha",
+        "ञ": "ña",
+
+        "ट": "ṭa",
+        "ठ": "ṭha",
+        "ड": "ḍa",
+        "ढ": "ḍha",
+        "ण": "ṇa",
+
+        "त": "ta",
+        "थ": "tha",
+        "द": "da",
+        "ध": "dha",
+        "न": "na",
+
+        "प": "pa",
+        "फ": "pha",
+        "ब": "ba",
+        "भ": "bha",
+        "म": "ma",
+
+        "य": "ya",
+        "र": "ra",
+        "ल": "la",
+        "व": "va",
+
+        "श": "śa",
+        "ष": "ṣa",
+        "स": "sa",
+        "ह": "ha",
+
+        "ं": "ṃ",
+        "ः": "ḥ"
+    };
+
+    let output = "";
+
+    for (let char of text) {
+
+        if (map[char]) {
+            output += map[char];
+        } else {
+            output += char;
+        }
+    }
+
+    return output;
 }

@@ -137,6 +137,7 @@
         <button onclick="showSection('consonants')">Consonants</button>
         <button onclick="showSection('groups')">Articulation</button>
         <button onclick="showSection('identify')">Identify</button>
+        <button onclick="showSection('dictionary')">Dictionary</button>
     </nav>
 
     <main>
@@ -235,6 +236,58 @@
 
             </div>
         </section>
+        <section id="dictionary" class="section">
+
+    <h2>📖 Sanskrit Dictionary & Transliteration</h2>
+
+    <p>
+        Enter a Sanskrit word to view its transliteration,
+        meaning, root and basic grammatical information.
+    </p>
+
+    <div class="dictionary-box">
+
+        <input
+            type="text"
+            id="wordInput"
+            placeholder="Enter Sanskrit word e.g. रामः"
+        >
+
+        <button onclick="searchWord()">
+            Search
+        </button>
+
+        <button onclick="transliterateInput()">
+            Transliterate
+        </button>
+
+    </div>
+
+    <div class="examples">
+
+        <p>Try these words:</p>
+
+        <button onclick="setWord('रामः')">रामः</button>
+
+        <button onclick="setWord('गच्छति')">गच्छति</button>
+
+        <button onclick="setWord('पठति')">पठति</button>
+
+        <button onclick="setWord('जलम्')">जलम्</button>
+
+        <button onclick="setWord('सूर्यः')">सूर्यः</button>
+
+    </div>
+
+    <div id="dictionaryResult" class="dictionary-result">
+
+        <p>
+            Enter a Sanskrit word above to see its analysis.
+        </p>
+
+    </div>
+
+</section>
 
     </main>
 

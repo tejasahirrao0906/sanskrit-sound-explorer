@@ -355,3 +355,44 @@ footer {
     font-size: 13px;
     padding: 8px 14px;
 }
+
+.dictionary-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.dictionary-box input {
+    width: 60%;
+    padding: 12px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.dictionary-result {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.dictionary-result h3 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.dictionary-result p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.examples {
+    margin-top: 20px;
+}
+
+.examples button {
+    margin: 5px;
+}
