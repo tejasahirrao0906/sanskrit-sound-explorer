@@ -1,236 +1,129 @@
-// const vowels = [
-//     "अ", "आ", "इ", "ई", "उ", "ऊ",
-//     "ऋ", "ए", "ऐ", "ओ", "औ"
-// ];
+/* =====================================================
+   SANSKRIT SOUND EXPLORER
+   Experiment 7 + Experiment 11
+   ===================================================== */
 
-// const consonants = [
-//     "क", "ख", "ग", "घ", "ङ",
-//     "च", "छ", "ज", "झ", "ञ",
-//     "ट", "ठ", "ड", "ढ", "ण",
-//     "त", "थ", "द", "ध", "न",
-//     "प", "फ", "ब", "भ", "म"
-// ];
 
-// function createSoundCards(list, containerId) {
-
-//     const container = document.getElementById(containerId);
-
-//     list.forEach(sound => {
-
-//         const card = document.createElement("div");
-
-//         card.className = "sound-card";
-
-//         card.innerHTML = `
-//             <div class="sound">${sound}</div>
-//             <button onclick="speak('${sound}')">
-//                 🔊 Pronounce
-//             </button>
-//         `;
-
-//         container.appendChild(card);
-//     });
-// }
-
-// function speak(sound) {
-
-//     const speech = new SpeechSynthesisUtterance(sound);
-
-//     speech.lang = "hi-IN";
-
-//     speech.rate = 0.7;
-
-//     speechSynthesis.speak(speech);
-// }
-
-// function showSection(sectionId) {
-
-//     const sections = document.querySelectorAll(".section");
-
-//     sections.forEach(section => {
-//         section.classList.remove("active");
-//     });
-
-//     document.getElementById(sectionId).classList.add("active");
-// }
-
-// createSoundCards(vowels, "vowelContainer");
-
-// createSoundCards(consonants, "consonantContainer");
-
-// const questions = [
-//     {
-//         question: "Which group contains क ख ग घ ङ?",
-//         answers: ["Ka-varga", "Cha-varga", "Ta-varga", "Pa-varga"],
-//         correct: "Ka-varga"
-//     },
-
-//     {
-//         question: "Which Sanskrit sounds are vowels?",
-//         answers: ["अ आ इ", "क ख ग", "त थ द", "प फ ब"],
-//         correct: "अ आ इ"
-//     },
-
-//     {
-//         question: "Where are Pa-varga sounds mainly articulated?",
-//         answers: ["Throat", "Palate", "Teeth", "Lips"],
-//         correct: "Lips"
-//     }
-// ];
-
-// let currentQuestion = 0;
-
-// function loadQuestion() {
-
-//     const q = questions[currentQuestion];
-
-//     document.getElementById("question").innerText = q.question;
-
-//     const answers = document.getElementById("answers");
-
-//     answers.innerHTML = "";
-
-//     q.answers.forEach(answer => {
-
-//         const button = document.createElement("button");
-
-//         button.innerText = answer;
-
-//         button.style.margin = "5px";
-
-//         button.onclick = () => {
-
-//             if (answer === q.correct) {
-//                 document.getElementById("result").innerText =
-//                     "✓ Correct Answer!";
-//             } else {
-//                 document.getElementById("result").innerText =
-//                     "✗ Incorrect. Try again.";
-//             }
-//         };
-
-//         answers.appendChild(button);
-//     });
-// }
-
-// function nextQuestion() {
-
-//     currentQuestion++;
-
-//     if (currentQuestion >= questions.length) {
-//         currentQuestion = 0;
-//     }
-
-//     document.getElementById("result").innerText = "";
-
-//     loadQuestion();
-// }
-
-// loadQuestion();
-const dictionary = {
-
-    "रामः": {
-        iast: "rāmaḥ",
-        meaning: "Rama",
-        root: "राम",
-        grammar: "Nominative singular, masculine"
-    },
-
-    "गच्छति": {
-        iast: "gacchati",
-        meaning: "goes",
-        root: "गम्",
-        grammar: "Third person singular, present tense"
-    },
-
-    "पठति": {
-        iast: "paṭhati",
-        meaning: "reads / studies",
-        root: "पठ्",
-        grammar: "Third person singular, present tense"
-    },
-
-    "जलम्": {
-        iast: "jalam",
-        meaning: "water",
-        root: "जल",
-        grammar: "Accusative/Nominative singular, neuter"
-    },
-
-    "सूर्यः": {
-        iast: "sūryaḥ",
-        meaning: "Sun",
-        root: "सूर्य",
-        grammar: "Nominative singular, masculine"
-    },
-
-    "नमः": {
-        iast: "namaḥ",
-        meaning: "salutation / bow",
-        root: "नम्",
-        grammar: "Indeclinable expression"
-    },
-
-    "विद्या": {
-        iast: "vidyā",
-        meaning: "knowledge",
-        root: "विद्",
-        grammar: "Nominative singular, feminine"
-    },
-
-    "गुरुः": {
-        iast: "guruḥ",
-        meaning: "teacher",
-        root: "गुरु",
-        grammar: "Nominative singular, masculine"
-    }
-
-};
+/* ================= VOWELS ================= */
 
 const vowels = [
-    "अ", "आ", "इ", "ई", "उ", "ऊ",
-    "ऋ", "ए", "ऐ", "ओ", "औ"
+    "अ",
+    "आ",
+    "इ",
+    "ई",
+    "उ",
+    "ऊ",
+    "ऋ",
+    "ए",
+    "ऐ",
+    "ओ",
+    "औ"
 ];
+
+
+/* ================= CONSONANTS ================= */
 
 const consonants = [
     "क", "ख", "ग", "घ", "ङ",
     "च", "छ", "ज", "झ", "ञ",
     "ट", "ठ", "ड", "ढ", "ण",
     "त", "थ", "द", "ध", "न",
-    "प", "फ", "ब", "भ", "म"
+    "प", "फ", "ब", "भ", "म",
+    "य", "र", "ल", "व",
+    "श", "ष", "स", "ह"
 ];
 
-function createSoundCards(list, containerId) {
 
-    const container = document.getElementById(containerId);
+/* ================= DICTIONARY ================= */
 
-    list.forEach(sound => {
+const dictionary = {
 
-        const card = document.createElement("div");
+    "रामः": {
+        iast: "rāmaḥ",
+        meaning: "Rama",
+        root: "राम",
+        grammar: "Nominative singular, masculine",
+        type: "Noun"
+    },
 
-        card.className = "sound-card";
+    "गच्छति": {
+        iast: "gacchati",
+        meaning: "goes",
+        root: "गम्",
+        grammar: "Third person singular, present tense",
+        type: "Verb"
+    },
 
-        card.innerHTML = `
-            <div class="sound">${sound}</div>
-            <button onclick="speak('${sound}')">
-                🔊 Pronounce
-            </button>
-        `;
+    "पठति": {
+        iast: "paṭhati",
+        meaning: "reads / studies",
+        root: "पठ्",
+        grammar: "Third person singular, present tense",
+        type: "Verb"
+    },
 
-        container.appendChild(card);
-    });
-}
+    "जलम्": {
+        iast: "jalam",
+        meaning: "water",
+        root: "जल",
+        grammar: "Nominative/accusative singular, neuter",
+        type: "Noun"
+    },
 
-function speak(sound) {
+    "सूर्यः": {
+        iast: "sūryaḥ",
+        meaning: "Sun",
+        root: "सूर्य",
+        grammar: "Nominative singular, masculine",
+        type: "Noun"
+    },
 
-    const speech = new SpeechSynthesisUtterance(sound);
+    "नमः": {
+        iast: "namaḥ",
+        meaning: "salutation / bow",
+        root: "नम्",
+        grammar: "Indeclinable expression",
+        type: "Expression"
+    },
 
-    speech.lang = "hi-IN";
+    "विद्या": {
+        iast: "vidyā",
+        meaning: "knowledge",
+        root: "विद्",
+        grammar: "Nominative singular, feminine",
+        type: "Noun"
+    },
 
-    speech.rate = 0.7;
+    "गुरुः": {
+        iast: "guruḥ",
+        meaning: "teacher",
+        root: "गुरु",
+        grammar: "Nominative singular, masculine",
+        type: "Noun"
+    },
 
-    speechSynthesis.speak(speech);
-}
+    "मित्रम्": {
+        iast: "mitram",
+        meaning: "friend",
+        root: "मित्र",
+        grammar: "Nominative/accusative singular, neuter",
+        type: "Noun"
+    },
+
+    "पुस्तकम्": {
+        iast: "pustakam",
+        meaning: "book",
+        root: "पुस्तक",
+        grammar: "Nominative/accusative singular, neuter",
+        type: "Noun"
+    }
+
+};
+
+
+/* =====================================================
+   SECTION NAVIGATION
+   ===================================================== */
 
 function showSection(sectionId) {
 
@@ -240,398 +133,396 @@ function showSection(sectionId) {
         section.classList.remove("active");
     });
 
-    document.getElementById(sectionId).classList.add("active");
-}
+    const selectedSection = document.getElementById(sectionId);
 
-createSoundCards(vowels, "vowelContainer");
-
-createSoundCards(consonants, "consonantContainer");
-
-
-/* ------------------------------------------------------------------ */
-/*  Articulation group data (same 5 groups shown in the Groups tab)   */
-/* ------------------------------------------------------------------ */
-
-const consonantGroups = {
-    "क": { key: "ka",  name: "क-वर्ग", place: "Throat" },
-    "ख": { key: "ka",  name: "क-वर्ग", place: "Throat" },
-    "ग": { key: "ka",  name: "क-वर्ग", place: "Throat" },
-    "घ": { key: "ka",  name: "क-वर्ग", place: "Throat" },
-    "ङ": { key: "ka",  name: "क-वर्ग", place: "Throat" },
-
-    "च": { key: "cha", name: "च-वर्ग", place: "Palate" },
-    "छ": { key: "cha", name: "च-वर्ग", place: "Palate" },
-    "ज": { key: "cha", name: "च-वर्ग", place: "Palate" },
-    "झ": { key: "cha", name: "च-वर्ग", place: "Palate" },
-    "ञ": { key: "cha", name: "च-वर्ग", place: "Palate" },
-
-    "ट": { key: "tta", name: "ट-वर्ग", place: "Retroflex" },
-    "ठ": { key: "tta", name: "ट-वर्ग", place: "Retroflex" },
-    "ड": { key: "tta", name: "ट-वर्ग", place: "Retroflex" },
-    "ढ": { key: "tta", name: "ट-वर्ग", place: "Retroflex" },
-    "ण": { key: "tta", name: "ट-वर्ग", place: "Retroflex" },
-
-    "त": { key: "ta",  name: "त-वर्ग", place: "Teeth" },
-    "थ": { key: "ta",  name: "त-वर्ग", place: "Teeth" },
-    "द": { key: "ta",  name: "त-वर्ग", place: "Teeth" },
-    "ध": { key: "ta",  name: "त-वर्ग", place: "Teeth" },
-    "न": { key: "ta",  name: "त-वर्ग", place: "Teeth" },
-
-    "प": { key: "pa",  name: "प-वर्ग", place: "Lips" },
-    "फ": { key: "pa",  name: "प-वर्ग", place: "Lips" },
-    "ब": { key: "pa",  name: "प-वर्ग", place: "Lips" },
-    "भ": { key: "pa",  name: "प-वर्ग", place: "Lips" },
-    "म": { key: "pa",  name: "प-वर्ग", place: "Lips" }
-};
-
-/* Romanized fallback, used only if no Devanagari character is found
-   in the recognized speech. Capital T / D / N are the conventional
-   way to mark the retroflex (ट-वर्ग) sounds so they don't collide
-   with the dental (त-वर्ग) sounds, which share the same plain
-   lowercase spelling in everyday Roman transliteration. */
-const aliases = {
-    "क": ["ka", "k"],
-    "ख": ["kha"],
-    "ग": ["ga"],
-    "घ": ["gha"],
-    "ङ": ["nga"],
-
-    "च": ["cha"],
-    "छ": ["chha"],
-    "ज": ["ja"],
-    "झ": ["jha"],
-    "ञ": ["nya"],
-
-    "ट": ["T", "Ta", "tta"],
-    "ठ": ["Th", "Tha", "ttha"],
-    "ड": ["D", "Da", "dda"],
-    "ढ": ["Dh", "Dha", "ddha"],
-    "ण": ["N", "Na", "nna"],
-
-    "त": ["ta"],
-    "थ": ["tha"],
-    "द": ["da"],
-    "ध": ["dha"],
-    "न": ["na"],
-
-    "प": ["pa"],
-    "फ": ["pha", "fa"],
-    "ब": ["ba"],
-    "भ": ["bha"],
-    "म": ["ma"]
-};
-
-
-/* ------------------------------------------------------------------ */
-/*  Matching a raw transcript / typed string to a known consonant     */
-/* ------------------------------------------------------------------ */
-
-function matchConsonant(rawText) {
-
-    const text = rawText.trim();
-
-    if (!text) return null;
-
-    // 1) look for a direct Devanagari consonant character
-    const devMatches = Object.keys(consonantGroups)
-        .filter(c => text.includes(c));
-
-    if (devMatches.length) {
-        devMatches.sort((a, b) => text.indexOf(a) - text.indexOf(b));
-        return devMatches[0];
+    if (selectedSection) {
+        selectedSection.classList.add("active");
     }
 
-    // 2) capitalised retroflex aliases (word-boundary, case sensitive)
-    for (const consonant in aliases) {
-        const group = consonantGroups[consonant];
-        if (group.key !== "tta") continue;
-
-        for (const alias of aliases[consonant]) {
-            const pattern = new RegExp("\\b" + alias + "\\b");
-            if (pattern.test(text)) return consonant;
-        }
-    }
-
-    // 3) plain lowercase alias matching, longest alias wins
-    const lower = text.toLowerCase().replace(/[^a-z]/g, "");
-
-    let best = null;
-    let bestLength = 0;
-
-    for (const consonant in aliases) {
-        aliases[consonant].forEach(alias => {
-            const a = alias.toLowerCase();
-            if (lower.includes(a) && a.length > bestLength) {
-                best = consonant;
-                bestLength = a.length;
-            }
-        });
-    }
-
-    return best;
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
 
-/* ------------------------------------------------------------------ */
-/*  Result rendering                                                   */
-/* ------------------------------------------------------------------ */
+/* =====================================================
+   CREATE SOUND CARDS
+   ===================================================== */
 
-const identifyResult = document.getElementById("identifyResult");
-const micStatus = document.getElementById("micStatus");
-const micBtn = document.getElementById("micBtn");
+function createSoundCards(sounds, containerId) {
 
-function showIdentifyResult(heardText, consonant) {
+    const container = document.getElementById(containerId);
 
-    if (!consonant) {
-        identifyResult.innerHTML = `
-            <p class="heard">Heard: <span>${heardText || "—"}</span></p>
-            <p class="placeholder">
-                Couldn't match that to a known consonant.
-                Try again, or type it in the box above.
-            </p>
-        `;
+    if (!container) {
         return;
     }
 
-    const group = consonantGroups[consonant];
+    container.innerHTML = "";
 
-    identifyResult.innerHTML = `
-        <p class="heard">Heard: <span>${heardText}</span></p>
-        <div class="identify-consonant">${consonant}</div>
-        <p class="identify-group">${group.name}</p>
-        <p class="identify-place"><strong>Place:</strong> ${group.place}</p>
-        <button class="view-group-btn" onclick="jumpToGroup('${group.key}')">
-            View in Articulation Groups
-        </button>
-    `;
-}
+    sounds.forEach(sound => {
 
-function classifyText(text) {
-    const match = matchConsonant(text);
-    showIdentifyResult(text, match);
-}
+        const card = document.createElement("div");
 
-function classifyManual() {
-    const value = document.getElementById("manualInput").value;
-    classifyText(value);
-}
+        card.className = "sound-card";
 
-document.getElementById("manualInput").addEventListener("keydown", event => {
-    if (event.key === "Enter") {
-        classifyText(event.target.value);
-    }
-});
+        card.innerHTML = `
 
-function jumpToGroup(key) {
+            <div class="sound">
+                ${sound}
+            </div>
 
-    showSection("groups");
+            <button onclick="speak('${sound}')">
+                🔊 Hear
+            </button>
 
-    document.querySelectorAll(".group").forEach(g => g.classList.remove("highlight"));
+        `;
 
-    const target = document.querySelector(`.group[data-group="${key}"]`);
+        container.appendChild(card);
 
-    if (target) {
-        target.classList.add("highlight");
-        target.scrollIntoView({ behavior: "smooth", block: "center" });
-        setTimeout(() => target.classList.remove("highlight"), 2500);
-    }
-}
-
-
-/* ------------------------------------------------------------------ */
-/*  Voice input via the Web Speech API                                 */
-/* ------------------------------------------------------------------ */
-
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-let recognizing = false;
-let recognizer = null;
-
-if (SpeechRecognition) {
-
-    recognizer = new SpeechRecognition();
-    recognizer.lang = "hi-IN";
-    recognizer.interimResults = false;
-    recognizer.maxAlternatives = 3;
-
-    recognizer.onstart = () => {
-        recognizing = true;
-        micBtn.classList.add("listening");
-        micStatus.innerText = "Listening... say one consonant sound.";
-    };
-
-    recognizer.onresult = event => {
-
-        const alternatives = Array.from(event.results[0]).map(r => r.transcript);
-
-        let heard = alternatives[0];
-        let matched = null;
-
-        for (const alt of alternatives) {
-            const m = matchConsonant(alt);
-            if (m) {
-                matched = m;
-                heard = alt;
-                break;
-            }
-        }
-
-        showIdentifyResult(heard, matched);
-    };
-
-    recognizer.onerror = event => {
-        micStatus.innerText = `Mic error: ${event.error}. You can type it instead.`;
-    };
-
-    recognizer.onend = () => {
-        recognizing = false;
-        micBtn.classList.remove("listening");
-        micStatus.innerText = "Tap and say a consonant, e.g. क, ट, म";
-    };
-
-    micBtn.addEventListener("click", () => {
-        if (recognizing) {
-            recognizer.stop();
-            return;
-        }
-        try {
-            recognizer.start();
-        } catch (e) {
-            // recognition already starting
-        }
     });
-
-} else {
-    micBtn.disabled = true;
-    micStatus.innerText = "Voice input isn't supported in this browser (try Chrome). Use the text box instead.";
 }
+
+
+/* =====================================================
+   PRONUNCIATION
+   ===================================================== */
+
+function speak(text) {
+
+    if (!("speechSynthesis" in window)) {
+
+        alert(
+            "Speech synthesis is not supported in this browser."
+        );
+
+        return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+    speech.lang = "hi-IN";
+
+    speech.rate = 0.7;
+
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+
+
+/* =====================================================
+   DICTIONARY SEARCH
+   ===================================================== */
 
 function searchWord() {
 
-    const input = document.getElementById("wordInput");
+    const input =
+        document.getElementById("wordInput");
 
-    const word = input.value.trim();
+    const result =
+        document.getElementById("dictionaryResult");
 
-    const result = document.getElementById("dictionaryResult");
+    const word =
+        input.value.trim();
+
 
     if (word === "") {
 
         result.innerHTML = `
-            <p>Please enter a Sanskrit word.</p>
+
+            <div class="empty-result">
+
+                <div class="empty-icon">⚠️</div>
+
+                <h3>Please enter a word</h3>
+
+                <p>
+                    Enter a Sanskrit word such as रामः or सूर्यः.
+                </p>
+
+            </div>
+
         `;
 
         return;
     }
 
-    const data = dictionary[word];
 
-    if (data) {
+    const entry = dictionary[word];
 
-        result.innerHTML = `
 
-            <h3>${word}</h3>
+    if (entry) {
 
-            <p>
-                <strong>IAST:</strong>
-                ${data.iast}
-            </p>
+        displayDictionaryResult(word, entry);
 
-            <p>
-                <strong>Meaning:</strong>
-                ${data.meaning}
-            </p>
-
-            <p>
-                <strong>Root:</strong>
-                ${data.root}
-            </p>
-
-            <p>
-                <strong>Grammar:</strong>
-                ${data.grammar}
-            </p>
-
-        `;
+        addToHistory(word);
 
     } else {
 
+        const transliteration =
+            basicTransliterate(word);
+
         result.innerHTML = `
 
-            <h3>${word}</h3>
+            <div class="word-title">
 
-            <p>
-                Word not available in the basic dictionary.
-            </p>
+                <h3>${word}</h3>
 
-            <p>
-                You can still use the Transliterate button
-                to obtain a Roman transliteration.
-            </p>
+                <button onclick="speak('${word}')">
+                    🔊 Pronounce
+                </button>
+
+            </div>
+
+            <div class="transliteration">
+                ${transliteration}
+            </div>
+
+            <div class="meaning">
+
+                <strong>ℹ️ Dictionary:</strong>
+
+                This word is not available in the
+                basic offline dictionary.
+
+            </div>
+
+            <div class="analysis-grid">
+
+                <div class="analysis-card">
+                    <span>Transliteration</span>
+                    <strong>${transliteration}</strong>
+                </div>
+
+                <div class="analysis-card">
+                    <span>Meaning</span>
+                    <strong>Not available</strong>
+                </div>
+
+                <div class="analysis-card">
+                    <span>Grammar</span>
+                    <strong>Not available</strong>
+                </div>
+
+            </div>
 
         `;
+
+        addToHistory(word);
     }
 }
 
+
+/* =====================================================
+   DISPLAY DICTIONARY RESULT
+   ===================================================== */
+
+function displayDictionaryResult(word, entry) {
+
+    const result =
+        document.getElementById("dictionaryResult");
+
+
+    result.innerHTML = `
+
+        <div class="word-title">
+
+            <h3>${word}</h3>
+
+            <button onclick="speak('${word}')">
+                🔊 Pronounce
+            </button>
+
+        </div>
+
+
+        <div class="transliteration">
+            ${entry.iast}
+        </div>
+
+
+        <div class="meaning">
+
+            <strong>Meaning:</strong>
+
+            ${entry.meaning}
+
+        </div>
+
+
+        <div class="analysis-grid">
+
+
+            <div class="analysis-card">
+
+                <span>🔤 Transliteration</span>
+
+                <strong>
+                    ${entry.iast}
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-card">
+
+                <span>🌱 Root</span>
+
+                <strong>
+                    ${entry.root}
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-card">
+
+                <span>📚 Word Type</span>
+
+                <strong>
+                    ${entry.type}
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-card">
+
+                <span>🧠 Meaning</span>
+
+                <strong>
+                    ${entry.meaning}
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-card">
+
+                <span>📖 Grammar</span>
+
+                <strong>
+                    ${entry.grammar}
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-card">
+
+                <span>🔊 Pronunciation</span>
+
+                <strong>
+                    Available
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    `;
+}
+
+
+/* =====================================================
+   SET QUICK WORD
+   ===================================================== */
+
 function setWord(word) {
 
-    document.getElementById("wordInput").value = word;
+    const input =
+        document.getElementById("wordInput");
+
+    input.value = word;
 
     searchWord();
 }
 
+
+/* =====================================================
+   TRANSLITERATION BUTTON
+   ===================================================== */
+
 function transliterateInput() {
 
-    const input = document.getElementById("wordInput");
+    const input =
+        document.getElementById("wordInput");
 
-    const word = input.value.trim();
+    const result =
+        document.getElementById("dictionaryResult");
 
-    const result = document.getElementById("dictionaryResult");
+    const word =
+        input.value.trim();
+
 
     if (word === "") {
 
-        result.innerHTML = `
-            <p>Please enter a Sanskrit word.</p>
-        `;
+        alert("Please enter a Sanskrit word.");
 
         return;
     }
 
+
+    let transliteration;
+
+
     if (dictionary[word]) {
 
-        result.innerHTML = `
-
-            <h3>${word}</h3>
-
-            <p>
-                <strong>Transliteration:</strong>
-                ${dictionary[word].iast}
-            </p>
-
-            <p>
-                <strong>Meaning:</strong>
-                ${dictionary[word].meaning}
-            </p>
-
-        `;
+        transliteration =
+            dictionary[word].iast;
 
     } else {
 
-        result.innerHTML = `
+        transliteration =
+            basicTransliterate(word);
+    }
+
+
+    result.innerHTML = `
+
+        <div class="word-title">
 
             <h3>${word}</h3>
 
-            <p>
-                <strong>Transliteration:</strong>
-                ${basicTransliterate(word)}
-            </p>
+            <button onclick="speak('${word}')">
+                🔊 Pronounce
+            </button>
+
+        </div>
+
+
+        <div class="transliteration">
+
+            ${transliteration}
+
+        </div>
+
+
+        <div class="meaning">
+
+            <strong>IAST Transliteration</strong>
 
             <p>
-                This word is not available in the basic dictionary.
+                The Sanskrit word has been converted
+                into Roman/IAST notation.
             </p>
 
-        `;
-    }
+        </div>
+
+    `;
+
+    addToHistory(word);
 }
+
+
+/* =====================================================
+   BASIC SANSKRIT → IAST TRANSLITERATION
+   ===================================================== */
 
 function basicTransliterate(text) {
 
@@ -693,16 +584,346 @@ function basicTransliterate(text) {
         "ः": "ḥ"
     };
 
+
     let output = "";
+
 
     for (let char of text) {
 
         if (map[char]) {
+
             output += map[char];
+
         } else {
+
             output += char;
+
         }
+
     }
+
 
     return output;
 }
+
+
+/* =====================================================
+   SEARCH HISTORY
+   ===================================================== */
+
+let searchHistory =
+    JSON.parse(
+        localStorage.getItem("sanskritHistory")
+    ) || [];
+
+
+function addToHistory(word) {
+
+    searchHistory =
+        searchHistory.filter(
+            item => item !== word
+        );
+
+
+    searchHistory.unshift(word);
+
+
+    if (searchHistory.length > 5) {
+
+        searchHistory =
+            searchHistory.slice(0, 5);
+
+    }
+
+
+    localStorage.setItem(
+        "sanskritHistory",
+        JSON.stringify(searchHistory)
+    );
+
+
+    displayHistory();
+}
+
+
+function displayHistory() {
+
+    const container =
+        document.getElementById("historyContainer");
+
+
+    if (!container) {
+        return;
+    }
+
+
+    if (searchHistory.length === 0) {
+
+        container.innerHTML = `
+            <p class="no-history">
+                No recent searches.
+            </p>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML = "";
+
+
+    searchHistory.forEach(word => {
+
+        const item =
+            document.createElement("span");
+
+        item.className = "history-item";
+
+        item.textContent = word;
+
+        item.onclick = function() {
+
+            setWord(word);
+
+        };
+
+
+        container.appendChild(item);
+
+    });
+}
+
+
+function clearHistory() {
+
+    searchHistory = [];
+
+    localStorage.removeItem(
+        "sanskritHistory"
+    );
+
+    displayHistory();
+}
+
+
+/* =====================================================
+   ENTER KEY SEARCH
+   ===================================================== */
+
+function handleEnter(event) {
+
+    if (event.key === "Enter") {
+
+        searchWord();
+
+    }
+}
+
+
+/* =====================================================
+   QUIZ
+   ===================================================== */
+
+const questions = [
+
+    {
+        question:
+            "Which group contains क ख ग घ ङ?",
+
+        options: [
+            "क-वर्ग",
+            "च-वर्ग",
+            "त-वर्ग",
+            "प-वर्ग"
+        ],
+
+        answer: "क-वर्ग"
+    },
+
+
+    {
+        question:
+            "Which of these is a Sanskrit vowel?",
+
+        options: [
+            "अ",
+            "क",
+            "त",
+            "प"
+        ],
+
+        answer: "अ"
+    },
+
+
+    {
+        question:
+            "Where are प-वर्ग sounds mainly articulated?",
+
+        options: [
+            "Throat",
+            "Palate",
+            "Teeth",
+            "Lips"
+        ],
+
+        answer: "Lips"
+    },
+
+
+    {
+        question:
+            "What is the IAST transliteration of सूर्यः?",
+
+        options: [
+            "sūryaḥ",
+            "suryam",
+            "sari",
+            "sūrya"
+        ],
+
+        answer: "sūryaḥ"
+    }
+
+];
+
+
+let currentQuestion = 0;
+
+
+/* =====================================================
+   LOAD QUIZ QUESTION
+   ===================================================== */
+
+function loadQuestion() {
+
+    const question =
+        document.getElementById("question");
+
+    const options =
+        document.getElementById("options");
+
+    const result =
+        document.getElementById("quizResult");
+
+
+    if (!question || !options) {
+        return;
+    }
+
+
+    const q =
+        questions[currentQuestion];
+
+
+    question.textContent =
+        q.question;
+
+
+    options.innerHTML = "";
+
+
+    result.textContent = "";
+
+
+    q.options.forEach(option => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "quiz-option";
+
+        button.textContent =
+            option;
+
+
+        button.onclick = function() {
+
+            checkAnswer(option);
+
+        };
+
+
+        options.appendChild(button);
+
+    });
+}
+
+
+/* =====================================================
+   CHECK ANSWER
+   ===================================================== */
+
+function checkAnswer(answer) {
+
+    const result =
+        document.getElementById("quizResult");
+
+
+    const correct =
+        questions[currentQuestion].answer;
+
+
+    if (answer === correct) {
+
+        result.textContent =
+            "✅ Correct!";
+
+    } else {
+
+        result.textContent =
+            "❌ Incorrect. Correct answer: "
+            + correct;
+
+    }
+}
+
+
+/* =====================================================
+   NEXT QUESTION
+   ===================================================== */
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+
+    if (currentQuestion >= questions.length) {
+
+        currentQuestion = 0;
+
+    }
+
+
+    loadQuestion();
+}
+
+
+/* =====================================================
+   INITIALIZE APPLICATION
+   ===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        createSoundCards(
+            vowels,
+            "vowelContainer"
+        );
+
+
+        createSoundCards(
+            consonants,
+            "consonantContainer"
+        );
+
+
+        displayHistory();
+
+
+        loadQuestion();
+
+    }
+);

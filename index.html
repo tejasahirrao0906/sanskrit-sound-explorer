@@ -1,269 +1,284 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanskrit Sound Explorer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <header>
-        <h1>संस्कृत ध्वनि</h1>
-        <h2>Sanskrit Sound Explorer</h2>
-        <p>Explore Sanskrit sounds, articulation and pronunciation</p>
-    </header>
-
-    <nav>
-        <button onclick="showSection('home')">Home</button>
-        <button onclick="showSection('vowels')">Vowels</button>
-        <button onclick="showSection('consonants')">Consonants</button>
-        <button onclick="showSection('groups')">Articulation</button>
-        <button onclick="showSection('quiz')">Quiz</button>
-    </nav>
-
-    <main>
-
-        <section id="home" class="section active">
-            <h2>Welcome</h2>
-            <p>
-                Learn Sanskrit vowels and consonants and understand
-                how they are classified according to articulation.
-            </p>
-
-            <div class="info-box">
-                <h3>Why Sanskrit Phonetics?</h3>
-                <p>
-                    Sanskrit provides a systematic organization of sounds
-                    based on their place and manner of articulation.
-                </p>
-            </div>
-        </section>
-
-        <section id="vowels" class="section">
-            <h2>Sanskrit Vowels – स्वर</h2>
-
-            <div id="vowelContainer" class="sound-grid"></div>
-        </section>
-
-        <section id="consonants" class="section">
-            <h2>Sanskrit Consonants – व्यञ्जन</h2>
-
-            <div id="consonantContainer" class="sound-grid"></div>
-        </section>
-
-        <section id="groups" class="section">
-            <h2>Articulation Groups</h2>
-
-            <div class="group-grid">
-
-                <div class="group">
-                    <h3>क-वर्ग</h3>
-                    <p>क ख ग घ ङ</p>
-                    <strong>Place:</strong> Throat
-                </div>
-
-                <div class="group">
-                    <h3>च-वर्ग</h3>
-                    <p>च छ ज झ ञ</p>
-                    <strong>Place:</strong> Palate
-                </div>
-
-                <div class="group">
-                    <h3>ट-वर्ग</h3>
-                    <p>ट ठ ड ढ ण</p>
-                    <strong>Place:</strong> Retroflex
-                </div>
-
-                <div class="group">
-                    <h3>त-वर्ग</h3>
-                    <p>त थ द ध न</p>
-                    <strong>Place:</strong> Teeth
-                </div>
-
-                <div class="group">
-                    <h3>प-वर्ग</h3>
-                    <p>प फ ब भ म</p>
-                    <strong>Place:</strong> Lips
-                </div>
-
-            </div>
-        </section>
-
-        <section id="quiz" class="section">
-            <h2>Test Your Knowledge</h2>
-
-            <p id="question"></p>
-
-            <div id="answers"></div>
-
-            <p id="result"></p>
-
-            <button onclick="nextQuestion()">Next Question</button>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>T&C Apply</p>
-    </footer>
-
-    <script src="script.js"></script>
-
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Sanskrit Sound Explorer</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
+<header class="header">
+
+    <div class="logo">
         <h1>संस्कृत ध्वनि</h1>
-        <h2>Sanskrit Sound Explorer</h2>
-        <p>Explore Sanskrit sounds, articulation and pronunciation</p>
-    </header>
+        <p>Sanskrit Sound Explorer</p>
+    </div>
 
-    <nav>
-        <button onclick="showSection('home')">Home</button>
-        <button onclick="showSection('vowels')">Vowels</button>
-        <button onclick="showSection('consonants')">Consonants</button>
-        <button onclick="showSection('groups')">Articulation</button>
-        <button onclick="showSection('identify')">Identify</button>
-        <button onclick="showSection('dictionary')">Dictionary</button>
-    </nav>
-
-    <main>
-
-        <section id="home" class="section active">
-            <h2>Welcome</h2>
-            <p>
-                Learn Sanskrit vowels and consonants and understand
-                how they are classified according to articulation.
-            </p>
-
-            <div class="info-box">
-                <h3>Why Sanskrit Phonetics?</h3>
-                <p>
-                    Sanskrit provides a systematic organization of sounds
-                    based on their place and manner of articulation.
-                </p>
-            </div>
-        </section>
-
-        <section id="vowels" class="section">
-            <h2>Sanskrit Vowels – स्वर</h2>
-
-            <div id="vowelContainer" class="sound-grid"></div>
-        </section>
-
-        <section id="consonants" class="section">
-            <h2>Sanskrit Consonants – व्यञ्जन</h2>
-
-            <div id="consonantContainer" class="sound-grid"></div>
-        </section>
-
-        <section id="groups" class="section">
-            <h2>Articulation Groups</h2>
-
-            <div class="group-grid">
-
-                <div class="group" data-group="ka">
-                    <h3>क-वर्ग</h3>
-                    <p>क ख ग घ ङ</p>
-                    <strong>Place:</strong> Throat
-                </div>
-
-                <div class="group" data-group="cha">
-                    <h3>च-वर्ग</h3>
-                    <p>च छ ज झ ञ</p>
-                    <strong>Place:</strong> Palate
-                </div>
-
-                <div class="group" data-group="tta">
-                    <h3>ट-वर्ग</h3>
-                    <p>ट ठ ड ढ ण</p>
-                    <strong>Place:</strong> Retroflex
-                </div>
-
-                <div class="group" data-group="ta">
-                    <h3>त-वर्ग</h3>
-                    <p>त थ द ध न</p>
-                    <strong>Place:</strong> Teeth
-                </div>
-
-                <div class="group" data-group="pa">
-                    <h3>प-वर्ग</h3>
-                    <p>प फ ब भ म</p>
-                    <strong>Place:</strong> Lips
-                </div>
-
-            </div>
-        </section>
-
-        <section id="identify" class="section">
-            <h2>Identify Articulation Group</h2>
-
-            <p>
-                Tap the mic and speak a single consonant sound — the app
-                will recognize it and tell you which articulation group
-                (वर्ग) it belongs to.
-            </p>
-
-            <div class="identify-box">
-
-                <button id="micBtn" class="mic-btn">
-                    🎤 Speak a Consonant
-                </button>
-
-                <p id="micStatus">Tap and say a consonant, e.g. क, ट, म</p>
-
-                <div class="manual-input">
-                    <input type="text" id="manualInput" placeholder="Say or type it here (consonants)">
-                    <button onclick="classifyManual()">Check</button>
-                </div>
-
-                <div id="identifyResult" class="identify-result">
-                    <p class="placeholder">Result will appear here.</p>
-                </div>
-
-            </div>
-        </section>
-        <section id="dictionary" class="section">
-
-    <h2>📖 Sanskrit Dictionary & Transliteration</h2>
-
-    <p>
-        Enter a Sanskrit word to view its transliteration,
-        meaning, root and basic grammatical information.
+    <p class="tagline">
+        Explore Sanskrit sounds, pronunciation and language technology
     </p>
 
-    <div class="dictionary-box">
+</header>
+
+
+<nav class="navbar">
+
+    <button onclick="showSection('home')">Home</button>
+
+    <button onclick="showSection('vowels')">Vowels</button>
+
+    <button onclick="showSection('consonants')">Consonants</button>
+
+    <button onclick="showSection('articulation')">Articulation</button>
+
+    <button onclick="showSection('dictionary')">📖 Dictionary</button>
+
+    <button onclick="showSection('quiz')">Quiz</button>
+
+</nav>
+
+
+<main>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="section active">
+
+    <div class="hero">
+
+        <h2>Welcome to Sanskrit Sound Explorer</h2>
+
+        <p>
+            Learn Sanskrit vowels, consonants, articulation patterns,
+            pronunciation and basic Sanskrit language technology.
+        </p>
+
+        <button class="main-button"
+                onclick="showSection('dictionary')">
+            Explore Dictionary
+        </button>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <div class="feature-icon">🔤</div>
+            <h3>Vowels</h3>
+            <p>Explore important Sanskrit vowel sounds.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🗣️</div>
+            <h3>Consonants</h3>
+            <p>Learn Sanskrit consonants and their sounds.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">📍</div>
+            <h3>Articulation</h3>
+            <p>Understand where Sanskrit sounds are produced.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">📖</div>
+            <h3>Dictionary</h3>
+            <p>Search Sanskrit words and view their analysis.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= VOWELS ================= -->
+
+<section id="vowels" class="section">
+
+    <h2>🔤 Sanskrit Vowels</h2>
+
+    <p class="section-description">
+        Click on a sound to hear its pronunciation.
+    </p>
+
+    <div id="vowelContainer" class="sound-grid"></div>
+
+</section>
+
+
+
+<!-- ================= CONSONANTS ================= -->
+
+<section id="consonants" class="section">
+
+    <h2>🗣️ Sanskrit Consonants</h2>
+
+    <p class="section-description">
+        Explore Sanskrit consonant sounds.
+    </p>
+
+    <div id="consonantContainer" class="sound-grid"></div>
+
+</section>
+
+
+
+<!-- ================= ARTICULATION ================= -->
+
+<section id="articulation" class="section">
+
+    <h2>📍 Places of Articulation</h2>
+
+    <p class="section-description">
+        Sanskrit consonants are systematically classified
+        according to their place of articulation.
+    </p>
+
+
+    <div class="articulation-grid">
+
+        <div class="articulation-card">
+
+            <h3>क-वर्ग</h3>
+
+            <div class="large-sounds">
+                क ख ग घ ङ
+            </div>
+
+            <p><strong>Place:</strong> Throat</p>
+
+            <button onclick="speak('क ख ग घ ङ')">
+                🔊 Pronounce
+            </button>
+
+        </div>
+
+
+        <div class="articulation-card">
+
+            <h3>च-वर्ग</h3>
+
+            <div class="large-sounds">
+                च छ ज झ ञ
+            </div>
+
+            <p><strong>Place:</strong> Palate</p>
+
+            <button onclick="speak('च छ ज झ ञ')">
+                🔊 Pronounce
+            </button>
+
+        </div>
+
+
+        <div class="articulation-card">
+
+            <h3>ट-वर्ग</h3>
+
+            <div class="large-sounds">
+                ट ठ ड ढ ण
+            </div>
+
+            <p><strong>Place:</strong> Retroflex</p>
+
+            <button onclick="speak('ट ठ ड ढ ण')">
+                🔊 Pronounce
+            </button>
+
+        </div>
+
+
+        <div class="articulation-card">
+
+            <h3>त-वर्ग</h3>
+
+            <div class="large-sounds">
+                त थ द ध न
+            </div>
+
+            <p><strong>Place:</strong> Teeth</p>
+
+            <button onclick="speak('त थ द ध न')">
+                🔊 Pronounce
+            </button>
+
+        </div>
+
+
+        <div class="articulation-card">
+
+            <h3>प-वर्ग</h3>
+
+            <div class="large-sounds">
+                प फ ब भ म
+            </div>
+
+            <p><strong>Place:</strong> Lips</p>
+
+            <button onclick="speak('प फ ब भ म')">
+                🔊 Pronounce
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= DICTIONARY ================= -->
+
+<section id="dictionary" class="section">
+
+    <div class="dictionary-header">
+
+        <div>
+
+            <h2>📖 Sanskrit Dictionary</h2>
+
+            <p>
+                Search a Sanskrit word to explore its transliteration,
+                meaning, root and basic grammatical information.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="dictionary-search">
 
         <input
             type="text"
             id="wordInput"
             placeholder="Enter Sanskrit word e.g. रामः"
+            onkeydown="handleEnter(event)"
         >
 
         <button onclick="searchWord()">
-            Search
+            🔍 Search
         </button>
 
         <button onclick="transliterateInput()">
-            Transliterate
+            🔤 Transliterate
         </button>
 
     </div>
 
-    <div class="examples">
+
+    <!-- QUICK WORDS -->
+
+    <div class="quick-search">
 
         <p>Try these words:</p>
 
@@ -277,25 +292,145 @@
 
         <button onclick="setWord('सूर्यः')">सूर्यः</button>
 
+        <button onclick="setWord('विद्या')">विद्या</button>
+
+        <button onclick="setWord('गुरुः')">गुरुः</button>
+
     </div>
+
+
+    <!-- RESULT -->
 
     <div id="dictionaryResult" class="dictionary-result">
 
+        <div class="empty-result">
+
+            <div class="empty-icon">📖</div>
+
+            <h3>Search a Sanskrit Word</h3>
+
+            <p>
+                Enter a word above to see its linguistic information.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH HISTORY -->
+
+    <div class="history-section">
+
+        <div class="history-title">
+
+            <h3>🕘 Recent Searches</h3>
+
+            <button onclick="clearHistory()">
+                Clear
+            </button>
+
+        </div>
+
+        <div id="historyContainer">
+
+            <p class="no-history">
+                No recent searches.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- LANGUAGE TECHNOLOGY -->
+
+    <div class="technology-box">
+
+        <h3>💡 Sanskrit Language Technology</h3>
+
         <p>
-            Enter a Sanskrit word above to see its analysis.
+            Digital Sanskrit tools help preserve and analyze
+            Sanskrit language resources using modern technology.
         </p>
+
+        <ul>
+
+            <li>
+                Digital preservation of ancient Sanskrit texts
+            </li>
+
+            <li>
+                Transliteration between Sanskrit and Roman scripts
+            </li>
+
+            <li>
+                Searchable digital dictionaries
+            </li>
+
+            <li>
+                Grammar and linguistic analysis
+            </li>
+
+            <li>
+                Language learning applications
+            </li>
+
+            <li>
+                Speech processing and computational linguistics
+            </li>
+
+        </ul>
 
     </div>
 
 </section>
 
-    </main>
 
-    <footer>
-        <p>T&C Apply</p>
-    </footer>
 
-    <script src="script.js"></script>
+<!-- ================= QUIZ ================= -->
+
+<section id="quiz" class="section">
+
+    <h2>🧠 Sanskrit Sound Quiz</h2>
+
+    <div class="quiz-card">
+
+        <h3 id="question">
+            Question
+        </h3>
+
+        <div id="options"></div>
+
+        <p id="quizResult"></p>
+
+        <button onclick="nextQuestion()">
+            Next Question →
+        </button>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        Sanskrit Sound Explorer | Experiment 7 & Experiment 11
+    </p>
+
+    <p>
+        Built using HTML, CSS and JavaScript
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
